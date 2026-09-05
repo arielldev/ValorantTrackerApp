@@ -1,0 +1,18 @@
+[package]
+name = "tauri-plugin-valorant-auth"
+version = "0.1.0"
+description = "Riot login WebView and Keystore-backed secret storage for ValoStore."
+edition = "2021"
+license = "MIT"
+rust-version = "1.77.2"
+links = "tauri-plugin-valorant-auth"
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+log = "0.4"
+
+[build-dependencies]
+tauri-plugin = { version = "2", features = ["build"] }

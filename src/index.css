@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./assets/fonts/BebasNeue-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./assets/fonts/BebasNeue-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./assets/fonts/Barlow-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./assets/fonts/Barlow-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("./assets/fonts/Barlow-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("./assets/fonts/Barlow-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@theme {
+  --color-*: initial;
+  --color-obsidian: #0a0a0c;
+  --color-charcoal: #141417;
+  --color-graphite: #1e1e23;
+  --color-hairline: #2c2c33;
+  --color-gold: #c9a227;
+  --color-gold-bright: #ead27a;
+  --color-gold-deep: #8a6d14;
+  --color-bone: #f1ece1;
+  --color-ash: #8e897e;
+  --color-smoke: #5a574f;
+  --color-signal: #d8434e;
+  --color-transparent: transparent;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --font-display: "Bebas Neue", Anton, Impact, sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+
+  --text-d1: 2.5rem;
+  --text-d1--line-height: 0.95;
+  --text-d2: 1.75rem;
+  --text-d2--line-height: 0.95;
+  --text-d3: 1.25rem;
+  --text-d3--line-height: 0.95;
+  --text-body: 1rem;
+  --text-body--line-height: 1.4;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.35;
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1;
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.2;
+
+  --tracking-display: 0.06em;
+  --tracking-label: 0.12em;
+
+  --radius-*: initial;
+  --radius-none: 0;
+
+  --animate-rise: rise 0.32s ease-out both;
+  --animate-star: star 0.12s ease-out;
+  --animate-sweep: sweep 0.8s ease-in-out;
+  --animate-fade: fade 0.2s ease-out both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes star {
+    50% { transform: scale(1.15); }
+  }
+  @keyframes sweep {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  --animate-breathe: breathe 2.4s ease-in-out infinite;
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px rgba(201, 162, 39, 0.25)); }
+    50% { transform: scale(1.04); filter: drop-shadow(0 0 42px rgba(201, 162, 39, 0.55)); }
+  }
+  --animate-blink: blink 1.6s ease-in-out infinite;
+  @keyframes blink {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+  }
+}
+
+@utility chamfer {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+@utility chamfer-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+@utility chamfer-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+@utility gold-gradient {
+  background-image: linear-gradient(180deg, #ead27a 0%, #c9a227 55%, #8a6d14 100%);
+}
+@utility gold-gradient-h {
+  background-image: linear-gradient(90deg, #ead27a 0%, #c9a227 55%, #8a6d14 100%);
+}
+@utility vignette {
+  background-image: radial-gradient(60% 60% at 50% 50%, rgba(201, 162, 39, 0.1), transparent);
+}
+@utility label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-label);
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@utility safe-top {
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+}
+@utility safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-obsidian);
+  }
+  body {
+    margin: 0;
+    background: var(--color-obsidian);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  img, video {
+    display: block;
+    max-width: 100%;
+  }
+  input, select {
+    font: inherit;
+    color: inherit;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    button, [role="button"], [role="switch"], [role="option"], [role="tab"], a, label, summary {
+      cursor: pointer;
+    }
+    button:disabled, [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+    input[type="text"], input[type="search"], textarea {
+      cursor: text;
+    }
+    [data-tauri-drag-region] {
+      cursor: default;
+    }
+    .no-scrollbar[class*="overflow-x-auto"] {
+      cursor: grab;
+    }
+    .no-scrollbar[class*="overflow-x-auto"]:active {
+      cursor: grabbing;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
